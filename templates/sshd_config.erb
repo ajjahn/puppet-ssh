@@ -85,3 +85,8 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM yes
+
+<% if @match_user -%>
+Match User <%= @match_user['user'] %>
+<%= @match_user['option'] %> <%= @match_user['value'] %>
+<% end -%>
