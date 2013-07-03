@@ -2,7 +2,7 @@ class ssh::client::config {
   
   file { "/etc/ssh/ssh_config":
     ensure => present,
-    source => "puppet:///modules/${module_name}/ssh_config",
+    source => $ssh::client::params::ssh_config_source,
     require => Class["ssh::client::install"]
   }
   

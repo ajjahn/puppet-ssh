@@ -1,6 +1,6 @@
 class ssh::client::install {
   
-  package { "openssh-client":
+  package { "${ssh::client::params::package}":
     ensure => latest,
   }
   
