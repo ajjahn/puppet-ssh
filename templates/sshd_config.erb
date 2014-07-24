@@ -86,7 +86,10 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM yes
 
-<% if @match_user -%>
-Match User <%= @match_user['user'] %>
-<%= @match_user['option'] %> <%= @match_user['value'] %>
+<% @match_user.each do |user| -%>
+Match User <%= user['user'] %>
+<% user['options'].each do |key, value| -%>
+<%= key %> <%= value %>
+<% end -%>
+
 <% end -%>
